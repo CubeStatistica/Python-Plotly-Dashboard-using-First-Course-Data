@@ -3,8 +3,9 @@ from dash import dcc
 from dash import html
 import plotly.express as px
 import pandas as pd
+import dash_bootstrap_components as dbc
 
-app = dash.Dash(__name__, suppress_callback_exceptions=True)
+app = dash.Dash(external_stylesheets=[dbc.themes.DARKLY])
 
 data = pd.read_csv("Data/Data - DS C1 Course.csv")
 
@@ -16,20 +17,20 @@ app.layout = html.Div(children=[
     html.Div([
      dcc.Graph(id="graph1", figure=fig), 
      dcc.Graph(id="gra7", figure=fig2)
-     ],className='column'),
+     ],className='six columns'),
     
     html.Div([
      dcc.Graph(id="graph2", figure=fig1), 
-     ],className='row'),
+     ],className='six columns'),
 
     
     html.Div([
      dcc.Graph(id="graph3", figure=fig), 
-     ],className='Column'),
+     ],className='six columns'),
 
     html.Div([
      dcc.Graph(id="graph4", figure=fig1), 
-     ],className='Column'),
+     ],className='six columns'),
 
 ])
 
